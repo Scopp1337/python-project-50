@@ -1,6 +1,3 @@
-from typing import Any
-
-
 def item_add(key, value):
     return {
         'action': 'added',

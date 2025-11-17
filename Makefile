@@ -27,4 +27,4 @@ reinstall:
 uninstall:
 	uv tool uninstall hexlet-code
 
-.PHONY: install test lint selfcheck check build package-install reinstall uninstall
+.PHONY: install test lint selfcheck check build package-install reinstall uninstalla
