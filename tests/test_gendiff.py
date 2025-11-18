@@ -20,6 +20,3 @@ def test_generate_diff(file_path1, file_path2, expected_result):
 
 
 
-
-
-
