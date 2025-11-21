@@ -16,8 +16,11 @@ Gendiff is a smart file comparison tool that analyzes differences between config
 
 ### Installation
 git clone git@github.com:Scopp1337/python-project-50.git
+
 cd python-project-50
+
 uv build
+
 uv tool install dist/*.whl
 
 ### Basic Usage
