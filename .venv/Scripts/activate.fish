@@ -1,3 +1,24 @@
+# Copyright (c) 2020-202x The virtualenv developers
+#
+# Permission is hereby granted, free of charge, to any person obtaining
+# a copy of this software and associated documentation files (the
+# "Software"), to deal in the Software without restriction, including
+# without limitation the rights to use, copy, modify, merge, publish,
+# distribute, sublicense, and/or sell copies of the Software, and to
+# permit persons to whom the Software is furnished to do so, subject to
+# the following conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+# LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+# OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+# WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
 # This file must be used using `source bin/activate.fish` *within a running fish ( http://fishshell.com ) session*.
 # Do not run it directly.
 
@@ -18,7 +39,7 @@ function deactivate -d 'Exit virtualenv mode and return to the normal environmen
     # reset old environment variables
     if test -n "$_OLD_VIRTUAL_PATH"
         # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
-        if test (echo $FISH_VERSION | head -c 1) -lt 3
+        if test (string sub -s 1 -l 1 $FISH_VERSION) -lt 3
             set -gx PATH (_fishify_path "$_OLD_VIRTUAL_PATH")
         else
             set -gx PATH $_OLD_VIRTUAL_PATH
@@ -61,12 +82,12 @@ deactivate nondestructive
 set -gx VIRTUAL_ENV 'C:\Users\yankv\OneDrive\Desktop\Hexlet\python-project-50\.venv'
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
-if test (echo $FISH_VERSION | head -c 1) -lt 3
+if test (string sub -s 1 -l 1 $FISH_VERSION) -lt 3
     set -gx _OLD_VIRTUAL_PATH (_bashify_path $PATH)
 else
     set -gx _OLD_VIRTUAL_PATH $PATH
 end
-set -gx PATH "$VIRTUAL_ENV"'/'Scripts $PATH
+set -gx PATH "$VIRTUAL_ENV"'/Scripts' $PATH
 
 # Prompt override provided?
 # If not, just use the environment name.
