@@ -18,16 +18,16 @@ def make_plain_item(item, path=''):
     old_value = format_value((item.get('old_value')))
     current_path = f"{path}.{key}" if path else key
 
-    ADD = ' was added with value: '
-    REMOVE = ' was removed'
+    ADDED = ' was added with value: '
+    REM = ' was removed'
     UPD = ' was updated. From '
     UPD2 = ' to '
     PROP = 'Property '
 
     if action == 'added':
-        return f"{PROP}'{current_path}'{ADD}{new_value}"
+        return f"{PROP}'{current_path}'{ADDED}{new_value}"
     if action == 'deleted':
-        return f"{PROP}'{current_path}'{REMOVE}"
+        return f"{PROP}'{current_path}'{REM}"
     if action == 'modified':
         return f"{PROP}'{current_path}'{UPD}{old_value}{UPD2}{new_value}"
     if action == 'nested':
