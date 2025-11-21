@@ -51,7 +51,10 @@ def find_diff(data1, data2):
                 diff.append(item_add(key, value2))
             case (True, False):
                 diff.append(item_delete(key, value1))
-            case (True, True) if isinstance(value1, dict) and isinstance(value2, dict):
+            case (True, True) if (
+                    isinstance(value1, dict) and
+                    isinstance(value2, dict)
+            ):
                 diff.append(items_nested(key, value1, value2))
             case (True, True) if value1 != value2:
                 diff.append(items_modified(key, value1, value2))
