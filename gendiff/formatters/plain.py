@@ -18,15 +18,20 @@ def make_plain_item(item, path=''):
     old_val = format_value(item.get('old_value'))
     cur_path = f"{path}.{key}" if path else key
 
-    if action == 'added':
-        return f"Property '{cur_path}' was added with value: {new_val}"
-    if action == 'deleted':
-        return f"Property '{cur_path}' was removed"
-    if action == 'modified':
-        return f"Property '{cur_path}' was updated. From {old_val} to {new_val}"
-    if action == 'nested':
-        return make_plain_diff(item.get('children'), cur_path)
-    return None
+    match action:
+        case 'added':
+            return (f"Property '{cur_path}' was added "
+                    f"with value: {new_val}")
+        case 'deleted':
+            return f"Property '{cur_path}' was removed"
+        case 'modified':
+            return (f"Property '{cur_path}' was updated. "
+                    f"From {old_val} to {new_val}")
+        case 'nested':
+            children = item.get('children')
+            return make_plain_diff(children, cur_path)
+        case _:
+            return None
 
 
 def make_plain_diff(diff, path=''):
