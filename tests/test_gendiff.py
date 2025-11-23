@@ -23,7 +23,7 @@ def test_generate_diff(file_path1, file_path2, expected_result):
     ('tests/test_data/file1.yaml',
      'tests/test_data/file2.yaml',
      'tests/test_data/expected_result_plain.txt')])
-def test_generate_diff(file_path1, file_path2, expected_result):
+def test_generate_diff_plain(file_path1, file_path2, expected_result):
     diff = generate_diff(file_path1, file_path2, formatter='plain')
     expected = read_file(expected_result).strip()
     assert diff.strip() == expected
@@ -36,7 +36,7 @@ def test_generate_diff(file_path1, file_path2, expected_result):
     ('tests/test_data/file1.yaml',
      'tests/test_data/file2.yaml',
      'tests/test_data/expected_result_json_format.txt')])
-def test_generate_diff(file_path1, file_path2, expected_result):
+def test_generate_diff_json(file_path1, file_path2, expected_result):
     diff = generate_diff(file_path1, file_path2, formatter='json')
     expected = read_file(expected_result).strip()
     assert diff.strip() == expected
